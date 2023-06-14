@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Experience } from 'src/app/model/experience';
 
 @Component({
@@ -10,6 +10,9 @@ export class ExperienceComponent implements OnInit {
   experiences: Experience[] = [];
   experience: Experience = new Experience();
 
+  @Output()
+  experienceAdded = new EventEmitter<Experience[]>();
+
   constructor() {}
 
   ngOnInit(): void {}
@@ -17,5 +20,6 @@ export class ExperienceComponent implements OnInit {
   onNewExperienceAdded() {
     this.experiences.push({ ...this.experience });
     this.experience = new Experience();
+    this.experienceAdded.emit(this.experiences);
   }
 }
