@@ -1,1 +1,32 @@
-<p>education-qualification works!</p>
+<div class="row">
+    <div class="col-12">
+        <h3>Education Details</h3>
+    </div>
+    <div class="col-sm-12 col-md-6 px-2 py-1">
+        <label>Institution</label>
+        <input type="text" [(ngModel)]="education.education_institute"/>
+    </div>
+    <div class="col-sm-12 col-md-6 px-2 py-1">
+        <label>Qualification</label>
+        <input type="text" [(ngModel)]="education.qualification"/>
+    </div>
+    <div class="col-12">
+        <button class="btn btn-primary" style="float: right;" [disabled]="!education.education_institute || !education.qualification"
+            (click)="onNewEducationAdded()">Add</button>
+    </div>
+
+    <table class="table" *ngIf="educations.length > 0">
+        <thead>
+            <tr>
+                <th>Institution</th>
+                <th>Qualification</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let e of educations">
+                <td>{{e.education_institute}}</td>
+                <td>{{e.qualification}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
