@@ -1,9 +1,15 @@
 <div class="container">
+    <div class="card p-4 mt-4">
+        <h3>Add New user</h3>
+        <p>Fill out the below form to add a new user.</p>
+    </div>
     <app-basic-info class="card p-4 mt-4" [userInfo]="userInfo"></app-basic-info>
     <app-address class="card p-4 mt-4" [address]="userInfo.address"></app-address>
     <app-education-qualification class="card p-4 mt-4" (educationAdded)="userInfo.educations = $event"></app-education-qualification>
     <app-experience class="card p-4 mt-4" (experienceAdded)="userInfo.experences = $event"></app-experience>
     <div class="row">
-        <button class="btn btn-submit"(click)="onSubmit()">Submit</button>
+        <div class="col-12 my-4">
+            <button class="btn btn-primary" style="float:right" (click)="onSubmit()">Submit</button>
+        </div>
     </div>
 </div>
