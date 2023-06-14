@@ -1,0 +1,29 @@
+<div class="row">
+    <div class="col-12">
+        <h3>Address</h3>
+    </div>
+    <div class="col-sm-12 col-md-6 px-2 py-1">
+        <label>Address Line 1</label>
+        <input type="text" [(ngModel)]="address.address_line_1"/>
+    </div>
+    <div class="col-sm-12 col-md-6 px-2 py-1">
+        <label>Address Line 2</label>
+        <input type="text" [(ngModel)]="address.address_line_2"/>
+    </div>
+    <div class="col-sm-12 col-md-6 px-2 py-1">
+        <label>State</label>
+        <select [(ngModel)]="address.state" (ngModelChange)="onStateChange($event)">
+            <option *ngFor="let state of states" [value]="state.stateId">{{state.stateName}}</option>
+        </select>
+    </div>
+    <div class="col-sm-12 col-md-6 px-2 py-1">
+        <label>City</label>
+        <select [(ngModel)]="address.city">
+            <option *ngFor="let city of cities" [value]="city.cityId">{{city.cityName}}</option>
+        </select>
+    </div>
+    <div class="col-sm-12 col-md-6 px-2 py-1">
+        <label>Country</label>
+        <input type="text" [(ngModel)]="address.country"/>
+    </div>
+</div>
